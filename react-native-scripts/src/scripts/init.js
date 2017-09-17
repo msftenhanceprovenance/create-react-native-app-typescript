@@ -17,8 +17,14 @@ const DEFAULT_DEPENDENCIES = {
 
 // TODO figure out how this interacts with ejection
 const DEFAULT_DEV_DEPENDENCIES = {
-  'jest-expo': '~20.0.0',
+  '@types/react': '^16.0.5',
+  '@types/react-native': '^0.48.4',
+  '@types/react-test-renderer': '^15.5.4',
+  'jest-expo-ts': '^20.0.0',
+  'react-native-typescript-transformer': '^1.1.4',
   'react-test-renderer': '16.0.0-alpha.12',
+  'tslib': '^1.7.1',
+  'typescript': '^2.5.2',
 };
 
 module.exports = async (appPath: string, appName: string, verbose: boolean, cwd: string = '') => {
@@ -64,17 +70,17 @@ https://github.com/npm/npm/issues/16991
   const appPackage = JSON.parse(await fse.readFile(appPackagePath));
 
   // mutate the default package.json in any ways we need to
-  appPackage.main = './node_modules/react-native-scripts/build/bin/crna-entry.js';
+  appPackage.main = './node_modules/react-native-scripts-ts/build/bin/crna-entry.js';
   appPackage.scripts = {
-    start: 'react-native-scripts start',
-    eject: 'react-native-scripts eject',
-    android: 'react-native-scripts android',
-    ios: 'react-native-scripts ios',
+    start: 'react-native-scripts-ts start',
+    eject: 'react-native-scripts-ts eject',
+    android: 'react-native-scripts-ts android',
+    ios: 'react-native-scripts-ts ios',
     test: 'node node_modules/jest/bin/jest.js --watch',
   };
 
   appPackage.jest = {
-    preset: 'jest-expo',
+    preset: 'jest-expo-ts',
   };
 
   if (!appPackage.dependencies) {
@@ -85,7 +91,7 @@ https://github.com/npm/npm/issues/16991
     appPackage.devDependencies = {};
   }
 
-  // react-native-scripts is already in the package.json devDependencies
+  // react-native-scripts-ts is already in the package.json devDependencies
   // so we need to merge instead of assigning
   Object.assign(appPackage.dependencies, DEFAULT_DEPENDENCIES);
   Object.assign(appPackage.devDependencies, DEFAULT_DEV_DEPENDENCIES);

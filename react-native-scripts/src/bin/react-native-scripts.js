@@ -17,6 +17,6 @@ if (validCommands.indexOf(script) !== -1) {
   process.exit(result.status);
 } else {
   console.log(
-    `Invalid command '${script}'. Please check if you need to update react-native-scripts.`
+    `Invalid command '${script}'. Please check if you need to update react-native-scripts-ts.`
   );
 }

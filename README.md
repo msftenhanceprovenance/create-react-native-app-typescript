@@ -1,7 +1,9 @@
-# Create React Native App
-[![npm version](https://badge.fury.io/js/create-react-native-app.svg)](https://badge.fury.io/js/create-react-native-app)
+# `react-native-scripts-ts`
+[![npm version](https://badge.fury.io/js/react-native-scripts-ts.svg)](https://badge.fury.io/js/react-native-scripts-ts)
 
-Create React Native apps with no build configuration.
+Create React Native apps (with Typescript) with no build configuration.
+
+Do you know react native and want to try out typescript? Or do you know typescript and want to try out react native? Get all the benefits from create-react-native-app but you use typescript! 🚀
 
 * [Getting Started](#getting-started)
 * [User Guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md)
@@ -14,7 +16,7 @@ Make sure you have Node v6 or later installed. No Xcode or Android Studio instal
 
 ```sh
 $ npm install -g create-react-native-app
-$ create-react-native-app my-app
+$ create-react-native-app my-app --scripts-version=react-native-scripts-ts
 $ cd my-app/
 $ npm start
 ```
@@ -50,7 +52,7 @@ You'll need to have Node v6 or later on your machine. We strongly recommend usin
 To create a new app, run:
 
 ```sh
-$ create-react-native-app my-app
+$ create-react-native-app my-app --scripts-version=react-native-scripts-ts
 $ cd my-app
 ```
 

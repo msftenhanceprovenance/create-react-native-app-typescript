@@ -17,6 +17,7 @@ const DEFAULT_DEPENDENCIES = {
 
 // TODO figure out how this interacts with ejection
 const DEFAULT_DEV_DEPENDENCIES = {
+  '@types/jest': '^20.0.8',
   '@types/react': '^16.0.5',
   '@types/react-native': '^0.48.4',
   '@types/react-test-renderer': '^15.5.4',

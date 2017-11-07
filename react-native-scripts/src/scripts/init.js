@@ -10,20 +10,20 @@ import install from '../util/install';
 
 // UPDATE DEPENDENCY VERSIONS HERE
 const DEFAULT_DEPENDENCIES = {
-  expo: '^21.0.0',
-  react: '16.0.0-alpha.12',
-  'react-native': '^0.48.4',
+  expo: '^22.0.2',
+  react: '16.0.0-beta.5',
+  'react-native': '^0.49.5',
 };
 
 // TODO figure out how this interacts with ejection
 const DEFAULT_DEV_DEPENDENCIES = {
-  '@types/jest': '^20.0.8',
+  '@types/jest': '^21.0.0',
   '@types/react': '^16.0.5',
-  '@types/react-native': '^0.48.4',
+  '@types/react-native': '^0.49.0',
   '@types/react-test-renderer': '^16.0.0',
-  'jest-expo-ts': '^21.0.0',
+  'jest-expo-ts': '^22.0.0',
   'react-native-typescript-transformer': '^1.1.4',
-  'react-test-renderer': '16.0.0-alpha.12',
+  'react-test-renderer': '16.0.0-beta.5',
   'tslib': '^1.7.1',
   'typescript': '^2.5.2',
 };

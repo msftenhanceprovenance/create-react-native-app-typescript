@@ -1,3 +1,19 @@
+## 1.11.1 (January 26, 2018)
+
+Update XDL to version 48.0.2.
+
+## 1.10.0 (January 18, 2018)
+
+Update to Expo SDK 25.
+
+## 1.9.0 (January 17, 2018)
+
+Update XDL to version 47.2.0.
+
+## 1.8.0 (November 27, 2017)
+
+Update for SDK 23.
+
 ## 1.7.0 (November 2, 2017)
 
 Release notes for previous releases between 1.3.1 and 1.7.0 were not include here as they only included React Native version bumps.

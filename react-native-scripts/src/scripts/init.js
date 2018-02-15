@@ -18,10 +18,10 @@ const DEFAULT_DEPENDENCIES = {
 // TODO figure out how this interacts with ejection
 const DEFAULT_DEV_DEPENDENCIES = {
   '@types/jest': '^22.0.0',
-  '@types/react': '^16.2.0',
+  '@types/react': '^16.0.38',
   '@types/react-native': '^0.52.0',
   '@types/react-test-renderer': '^16.0.0',
-  'ts-jest': '^25.0.0',
+  'ts-jest': '^22.0.4',
   'jest-expo': '25.0.0',
   'react-native-typescript-transformer': '^1.2.3',
   'react-test-renderer': '16.2.0',

@@ -22,7 +22,7 @@ const DEFAULT_DEV_DEPENDENCIES = {
   '@types/react-native': '^0.52.0',
   '@types/react-test-renderer': '^16.0.0',
   'ts-jest': '^25.0.0',
-  'jest-expo': '25.0.0'
+  'jest-expo': '25.0.0',
   'react-native-typescript-transformer': '^1.2.3',
   'react-test-renderer': '16.2.0',
   'tslib': '^1.7.1',

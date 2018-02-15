@@ -1,6 +1,6 @@
 {
   "name": "react-native-scripts-ts",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "description": "Configuration and scripts for Create React Native App.",
   "license": "BSD-3-Clause",
   "keywords": [
@@ -21,7 +21,8 @@
   },
   "scripts": {
     "start": "taskr",
-    "build": "taskr build"
+    "build": "taskr build",
+    "prepare": "taskr build"
   },
   "dependencies": {
     "@expo/bunyan": "1.8.10",

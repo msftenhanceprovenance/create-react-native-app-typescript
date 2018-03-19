@@ -81,6 +81,30 @@ https://github.com/npm/npm/issues/16991
     test: 'node node_modules/jest/bin/jest.js',
   };
 
+  appPackage.jest = {
+    globals: {
+      'ts-jest': {
+        useBabelrc: true,
+      },
+    },
+    moduleFileExtensions: [
+      'ts',
+      'tsx',
+      'js',
+      'jsx',
+      'json',
+      'node',
+    ],
+    preset: 'jest-expo',
+    testMatch: [
+      '**/__tests__/**/*.[tj]s?(x)',
+      '**/?(*.)(spec|test).[tj]s?(x)',
+    ],
+    transform: {
+      '^.+\\.tsx?$': 'ts-jest',
+    },
+  };
+
   if (!appPackage.dependencies) {
     appPackage.dependencies = {};
   }

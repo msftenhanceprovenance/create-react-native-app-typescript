@@ -8,7 +8,7 @@ Run `yarn` in the repo root to install prettier. Use `yarn run format` before su
 
 You'll need to install dependencies in both `create-react-native-app` and `react-native-scripts` and also start the watchers in both. It's also a good idea to tell npm/yarn that your local copy of react-native-scripts can be linked into projects where it's a dependency:
 
-```
+```bash
 # you may need to yarn unlink react-native-scripts before this will work
 $ cd path-to-repo-root/react-native-scripts
 $ yarn link
@@ -18,7 +18,7 @@ $ yarn link
 
 If you're trying to make a change to the behavior of the init process, then you'll need to do something like this:
 
-```
+```bash
 # replace the paths appropriately, and also the react-native-scripts version number
 $ cd path-to-repo-root/react-native-scripts && npm pack
 $ cd path-to-project-dir
@@ -32,7 +32,7 @@ $ yarn link react-native-scripts
 
 Otherwise, just create the app from the npm packages and you can link your modified scripts in afterwards:
 
-```
+```bash
 $ cd path-to-project-dir
 $ create-react-native-app testing-my-change
 ```
@@ -41,7 +41,7 @@ $ create-react-native-app testing-my-change
 
 Once your test project is initialized (whether using your custom init change or not), you'll need to link back to react-native-scripts to see any changes you make:
 
-```
+```bash
 $ cd path-to-project-dir/testing-my-change
 $ yarn link react-native-scripts
 ```
@@ -54,7 +54,7 @@ If you're testing changes to one of react-native-scripts' dependencies (say, xdl
 
 You'll specify a CLI config file in your test project's app.json:
 
-```
+```json
 {
   "expo": {
     "sdkVersion": "12.0.0",
@@ -67,7 +67,7 @@ You'll specify a CLI config file in your test project's app.json:
 
 And place a file like this in the root of your test project:
 
-```
+```js
 // rn-cli.config.js
 
 'use strict';

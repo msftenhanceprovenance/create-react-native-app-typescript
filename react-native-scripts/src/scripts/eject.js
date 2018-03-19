@@ -8,6 +8,7 @@ import path from 'path';
 import rimraf from 'rimraf';
 import spawn from 'cross-spawn';
 import log from '../util/log';
+import { hasYarn } from '../util/pm';
 
 import { detach } from '../util/expo';
 
@@ -78,7 +79,7 @@ Ejecting is permanent! Please be careful with your selection.
     const { ejectMethod } = await inquirer.prompt(questions);
 
     if (ejectMethod === 'raw') {
-      const useYarn = await fse.exists(path.resolve('yarn.lock'));
+      const useYarn = hasYarn(process.cwd());
       const npmOrYarn = useYarn ? 'yarn' : 'npm';
       const appJson = JSON.parse(await fse.readFile(path.resolve('app.json')));
       const pkgJson = JSON.parse(await fse.readFile(path.resolve('package.json')));
@@ -196,12 +197,17 @@ from \`babel-preset-expo\` to \`babel-preset-react-native-stage-0/decorator-supp
       pkgJson.scripts.start = 'react-native start';
       pkgJson.scripts.ios = 'react-native run-ios';
       pkgJson.scripts.android = 'react-native run-android';
+      pkgJson.scripts.test = 'jest';
+
+      newDevDependencies.push('jest');
 
       if (pkgJson.jest.preset === 'jest-expo') {
         pkgJson.jest.preset = 'react-native';
         newDevDependencies.push('jest-react-native');
       } else {
-        log(`${chalk.bold('Warning')}: it looks like you've changed the Jest preset from jest-expo to ${pkgJson.jest.preset}. We recommend you make sure this Jest preset is compatible with ejected apps.`)
+        log(
+          `${chalk.bold('Warning')}: it looks like you've changed the Jest preset from jest-expo to ${pkgJson.jest.preset}. We recommend you make sure this Jest preset is compatible with ejected apps.`
+        );
       }
 
       // no longer relevant to an ejected project (maybe build is?)

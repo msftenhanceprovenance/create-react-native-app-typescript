@@ -1,6 +1,6 @@
 # react-native-scripts
 
-The README for this package is hosted at https://github.com/react-community/create-react-native-app.
+The README for this package is hosted at https://github.com/mathieudutour/create-react-native-app-typescript.
 
 ## Development
 

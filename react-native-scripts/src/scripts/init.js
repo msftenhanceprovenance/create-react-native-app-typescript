@@ -12,9 +12,9 @@ import { hasYarn } from '../util/pm';
 
 // UPDATE DEPENDENCY VERSIONS HERE
 const DEFAULT_DEPENDENCIES = {
-  expo: '^25.0.0',
-  react: '16.2.0',
-  'react-native': '0.52.0',
+  expo: '^26.0.0',
+  react: '16.3.0-alpha.1',
+  'react-native': '0.54.0',
 };
 
 const WEB_DEFAULT_DEPENDENCIES = {
@@ -27,20 +27,20 @@ const WEB_DEFAULT_DEPENDENCIES = {
 
 // TODO figure out how this interacts with ejection
 const DEFAULT_DEV_DEPENDENCIES = {
-  '@types/jest': '^22.0.0',
-  '@types/react': '^16.0.38',
-  '@types/react-native': '^0.52.0',
+  '@types/jest': '^22.2.2',
+  '@types/react': '^16.1.0',
+  '@types/react-native': '^0.52.21',
   '@types/react-test-renderer': '^16.0.0',
-  'ts-jest': '^22.0.4',
-  'jest-expo': '25.0.0',
+  'ts-jest': '^22.4.2',
+  'jest-expo': '26.0.0',
   'react-native-typescript-transformer': '^1.2.3',
-  'react-test-renderer': '16.2.0',
-  'tslib': '^1.7.1',
-  'typescript': '^2.7.0',
+  'react-test-renderer': '16.3.0-alpha.1',
+  'tslib': '^1.9.0',
+  'typescript': '^2.8.1',
 };
 
 const WEB_DEFAULT_DEV_DEPENDENCIES = {
-  'react-native-scripts': 'next',
+  'react-native-scripts': 'latest',
   'babel-loader': '^7.1.2',
   'babel-plugin-expo-web': '^0.0.5',
   'babel-plugin-react-native-web': '^0.4.0',
@@ -62,25 +62,24 @@ module.exports = async (appPath: string, appName: string, verbose: boolean, cwd:
   const useYarn: boolean = hasYarn(appPath);
   const npmOrYarn = useYarn ? 'yarn' : 'npm';
 
-  // FIXME(perry) remove when npm 5 is supported
   if (!useYarn) {
     let npmVersion = spawn.sync('npm', ['--version']).stdout.toString().trim();
+    let npmVersionParts = npmVersion.split('.');
+    let majorVersion = parseInt(npmVersion[0], 10);
+    let minorVersion = parseInt(npmVersion[1], 10);
+    let patchVersion = parseInt(npmVersion[2], 10);
 
-    if (npmVersion.match(/\d+/)[0] === '5') {
+    if (majorVersion === 5 && minorVersion < 7) {
       console.log(
         chalk.yellow(
           `
 *******************************************************************************
-ERROR: npm 5 is not supported yet
+ERROR: npm >= 5.0.0 and < 5.7.0 are not supported
 *******************************************************************************
 
-It looks like you're using npm 5 which was recently released.
+It looks like you're using a version of npm that is buggy with this tool.
 
-Create React Native App doesn't work with npm 5 yet, unfortunately. We
-recommend using npm 4 or yarn until some bugs are resolved.
-
-You can follow the known issues with npm 5 at:
-https://github.com/npm/npm/issues/16991
+We recommend using npm >= 5.7.0 or yarn.
 
 *******************************************************************************
  `
@@ -112,7 +111,7 @@ https://github.com/npm/npm/issues/16991
   if (withWebSupport) {
     appPackage.main = './node_modules/react-native-scripts/build/bin/crna-entry-web.js';
     Object.assign(appPackage.scripts, {
-      web: 'webpack-dev-server -d --config ./webpack.config.js  --inline --hot --colors --content-base public/',
+      web: 'webpack-dev-server -d --config ./webpack.config.js  --inline --hot --colors --content-base public/ --history-api-fallback',
       build: 'NODE_ENV=production webpack -p --config ./webpack.config.js',
     });
   }
@@ -163,7 +162,10 @@ https://github.com/npm/npm/issues/16991
   await fse.writeFile(appPackagePath, JSON.stringify(appPackage, null, 2));
 
   // Copy the files for the user
-  await fse.copy(path.join(ownPath, arg['with-web-support'] ? 'template-with-web' : 'template'), appPath);
+  await fse.copy(
+    path.join(ownPath, arg['with-web-support'] ? 'template-with-web' : 'template'),
+    appPath
+  );
 
   // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
   try {

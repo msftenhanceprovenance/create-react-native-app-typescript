@@ -12,9 +12,9 @@ import { hasYarn } from '../util/pm';
 
 // UPDATE DEPENDENCY VERSIONS HERE
 const DEFAULT_DEPENDENCIES = {
-  expo: '^26.0.0',
-  react: '16.3.0-alpha.1',
-  'react-native': '0.54.0',
+  expo: '^27.0.1',
+  react: '16.3.1',
+  'react-native': '~0.55.2',
 };
 
 const WEB_DEFAULT_DEPENDENCIES = {
@@ -27,16 +27,16 @@ const WEB_DEFAULT_DEPENDENCIES = {
 
 // TODO figure out how this interacts with ejection
 const DEFAULT_DEV_DEPENDENCIES = {
-  '@types/jest': '^22.2.2',
-  '@types/react': '^16.1.0',
-  '@types/react-native': '^0.52.21',
-  '@types/react-test-renderer': '^16.0.0',
-  'ts-jest': '^22.4.2',
-  'jest-expo': '26.0.0',
+  '@types/jest': '^22.2.3',
+  '@types/react': '^16.3.14',
+  '@types/react-native': '^0.55.14',
+  '@types/react-test-renderer': '^16.0.1',
+  'ts-jest': '^22.4.6',
+  'jest-expo': '~27.0.0',
   'react-native-typescript-transformer': '^1.2.3',
-  'react-test-renderer': '16.3.0-alpha.1',
-  'tslib': '^1.9.0',
-  'typescript': '^2.8.1',
+  'react-test-renderer': '16.3.1',
+  'tslib': '^1.9.1',
+  'typescript': '^2.8.3',
 };
 
 const WEB_DEFAULT_DEV_DEPENDENCIES = {

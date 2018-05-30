@@ -9,6 +9,7 @@ import rimraf from 'rimraf';
 import spawn from 'cross-spawn';
 import log from '../util/log';
 import { hasYarn } from '../util/pm';
+import { createRnCliConfig } from '../util/typescript';
 
 import { detach } from '../util/expo';
 
@@ -256,6 +257,8 @@ Android Studio to build the native code for your project.`
           });
         }
       }
+
+      await createRnCliConfig();
     } else if (ejectMethod === 'expoKit') {
       await detach();
     } else {

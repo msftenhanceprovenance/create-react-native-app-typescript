@@ -35,8 +35,8 @@ const DEFAULT_DEV_DEPENDENCIES = {
   'jest-expo': '~27.0.0',
   'react-native-typescript-transformer': '^1.2.3',
   'react-test-renderer': '16.3.1',
-  'tslib': '^1.9.1',
-  'typescript': '^2.8.3',
+  tslib: '^1.9.1',
+  typescript: '^2.8.3',
 };
 
 const WEB_DEFAULT_DEV_DEPENDENCIES = {
@@ -122,19 +122,9 @@ We recommend using npm >= 5.7.0 or yarn.
         useBabelrc: true,
       },
     },
-    moduleFileExtensions: [
-      'ts',
-      'tsx',
-      'js',
-      'jsx',
-      'json',
-      'node',
-    ],
+    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     preset: 'jest-expo',
-    testMatch: [
-      '**/__tests__/**/*.[tj]s?(x)',
-      '**/?(*.)(spec|test).[tj]s?(x)',
-    ],
+    testMatch: ['**/__tests__/**/*.[tj]s?(x)', '**/?(*.)(spec|test).[tj]s?(x)'],
     transform: {
       '^.+\\.tsx?$': 'ts-jest',
     },

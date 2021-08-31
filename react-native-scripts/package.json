@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mathieudutour/create-react-native-app-typescript.git",
-    "directory": "packages/react-native-scripts"
+    "directory": "react-native-scripts"
   },
   "homepage": "https://github.com/mathieudutour/create-react-native-app-typescript",
   "bugs": "https://github.com/mathieudutour/create-react-native-app-typescript",
